@@ -92,6 +92,7 @@ impl Handler for PostPostHandler {
     try_handler!(req.body.read_to_string(&mut payload));
 
     let post = try_handler!(json::decode(&payload), status::BadRequest);
+    println!("My payload: {}", &payload);
 
     lock!(self.database).add_post(post);
     Ok(Response::with((status::Created, payload)))
