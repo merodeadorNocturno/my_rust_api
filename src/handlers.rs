@@ -110,6 +110,7 @@ impl PostHandler {
   }
 
   fn find_post(&self, id: &Uuid) -> Option<Post> {
+    println!("my uuid: {}", id.to_string());
     let locked = lock!(self.database);
     let mut iterator = locked.posts().iter();
     iterator.find(|p| p.uuid() == id).map(|p| p.clone())
