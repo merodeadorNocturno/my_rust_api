@@ -1,0 +1,17 @@
+[package]
+name = "my_rust_api"
+version = "0.1.0"
+authors = ["tonamartinez <tonatiuh.martinez@globant.com>"]
+edition = "2018"
+
+[dependencies]
+iron = "0.5"
+router = "0.5"
+logger = "0.2"
+env_logger = "0.3"
+rustc-serialize = "0.3"
+chrono = { version = "0.2", features = ["rustc-serialize"] }
+uuid = { version = "0.2", features = ["v4", "rustc-serialize"] }
+
+[profile.dev]
+opt-level = 3
