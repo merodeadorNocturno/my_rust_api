@@ -91,6 +91,7 @@ impl Handler for PostPostHandler {
     let mut payload = String::new();
     println!("My payload: {}", &payload);
     try_handler!(req.body.read_to_string(&mut payload));
+    println!("My payload 2: {}", &payload);
 
     let post = try_handler!(json::decode(&payload), status::BadRequest);
 
